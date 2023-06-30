@@ -20,7 +20,7 @@ struct Message {
 
 async fn get_response(messages: &[Message]) -> Result<Message, reqwest::Error> {
     let api_key = std::env::var("OPENAI_API_KEY").expect("openai api key not found");
-    let params = &serde_json::json!({"model": "gpt-3.5-turbo", "messages": messages});
+    let params = &serde_json::json!({"model": "gpt-4", "messages": messages});
 
     let request: ChatRequest = Client::new()
         .post("https://api.openai.com/v1/chat/completions")
